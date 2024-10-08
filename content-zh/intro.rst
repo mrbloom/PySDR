@@ -74,7 +74,7 @@
 - Deidre Stuffer
 - Tarik Benaddi 将 PySDR 翻译为 `法语 <https://pysdr.org/fr/index-fr.html>`_
 - `Daniel Versluis <https://versd.bitbucket.io/content/about.html>`_ 将 PySDR 翻译为 `荷兰语 <https://pysdr.org/nl/index-nl.html>`_
-- `mrbloom <https://github.com/mrbloom>`_  将 PySDR 翻译为 `乌克兰语 <https://pysdr.org/ukraine/index-ukraine.html>`_
+- `mrbloom <https://github.com/mrbloom>`_  将 PySDR 翻译为 `乌克兰语 <https://pysdr.org/uk/index-uk.html>`_
 - `Yimin Zhao <https://github.com/doctormin>`_ 将 PySDR 翻译为 `简体中文 <https://pysdr.org/zh/index-zh.html>`_
 - `Eduardo Chancay <https://github.com/edulchan>`_ 将 PySDR 翻译为 `西班牙语 <https://pysdr.org/es/index-es.html>`_
 

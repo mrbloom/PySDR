@@ -72,7 +72,7 @@ Bedankt aan iedereen die dit boek heeft gelezen en van feedback heeft voorzien, 
 - Deidre Stuffer
 - Tarik Benaddi voor het `vertalen van PySDR naar het Frans <https://pysdr.org/fr/index-fr.html>`_
 - Daniel Versluis voor het `vertalen van PySDR naar het Nederlands <https://pysdr.org/nl/index-nl.html>`_
-- `mrbloom <https://github.com/mrbloom>`_ voor `vertalen van PySDR naar het Ukraiens <https://pysdr.org/ukraine/index-ukraine.html>`_
+- `mrbloom <https://github.com/mrbloom>`_ voor `vertalen van PySDR naar het Ukraiens <https://pysdr.org/uk/index-uk.html>`_
 - `Yimin Zhao <https://github.com/doctormin>`_ voor `vertalen van PySDR naar het Chinees <https://pysdr.org/zh/index-zh.html>`_
   
 **********************

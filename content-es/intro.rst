@@ -60,7 +60,7 @@ Gracias a cualquiera que haya leído alguna parte de este libro de texto y haya 
 - Deidre Stuffer
 - Tarik Benaddi por `traducir PySDR al Frances <https://pysdr.org/fr/index-fr.html>`_
 - `Daniel Versluis <https://versd.bitbucket.io/content/about.html>`_ por `traducir PySDR al Aleman <https://pysdr.org/nl/index-nl.html>`_
-- `mrbloom <https://github.com/mrbloom>`_ por `tranducir PySDR al ucraniano <https://pysdr.org/ukraine/index-ukraine.html>`_
+- `mrbloom <https://github.com/mrbloom>`_ por `tranducir PySDR al ucraniano <https://pysdr.org/uk/index-uk.html>`_
 - `Yimin Zhao <https://github.com/doctormin>`_ por `traducir PySDR al chino simplificado <https://pysdr.org/zh/index-zh.html>`_
 - `Eduardo Chancay <https://github.com/edulchan>`_ por `traducir PySDR al español <https://pysdr.org/es/index-es.html>`_
 

@@ -58,6 +58,6 @@
 - Дейдрі Стаффер
 - Таріку Бенадді за переклад PySDR французькою мовою <https://pysdr.org/fr/index-fr.html>`_.
 - Даніелю Верслуїсу <https://versd.bitbucket.io/content/about.html>`_ за переклад PySDR голландською мовою <https://pysdr.org/nl/index-nl.html>`_.
-- `mrbloom <https://github.com/mrbloom>`_ за  `переклад PySDR українською <https://pysdr.org/ukraine/index-ukraine.html>`_
+- `mrbloom <https://github.com/mrbloom>`_ за  `переклад PySDR українською <https://pysdr.org/uk/index-uk.html>`_
 - `Yimin Zhao <https://github.com/doctormin>`_ за  `переклад PySDR спрощеною китайською <https://pysdr.org/zh/index-zh.html>`_
 - `Eduardo Chancay <https://github.com/edulchan>`_ за  `переклад PySDR іспанською <https://pysdr.org/es/index-es.html>`_

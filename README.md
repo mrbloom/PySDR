@@ -22,7 +22,7 @@ Look at `.github/workflows/build-and-deploy.yml` and run the apt/pip installs, t
 make html
 make html-fr
 make html-nl
-make html-ukraine
+make html-uk
 make html-zh
 ```
 
