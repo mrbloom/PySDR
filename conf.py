@@ -65,7 +65,7 @@ else:
 extensions = [
     'sphinx.ext.imgmath',
     'sphinx.ext.autosectionlabel',
-    #'sphinxcontrib.tikz', #added for dutch
+    'sphinxcontrib.tikz', #added for dutch # added by mrbloom@ukr.net for fix make error
 ]
 imgmath_image_format = 'svg' # way better looking than pngs (its vectorized after all!)
 imgmath_embed = True #turned this on since latest update broke html formula output, generated wrong svg src links.
