@@ -100,37 +100,37 @@ Python має багато переваг над MATLAB, він безкошто
    :widths: 35 25 40
    :header-rows: 1
 
-   * - Operation
+   * - Оператор
      - MATLAB
      - Python/NumPy
-   * - Create (Row) Vector, size :code:`1 x 4`
+   * - Створити (Рядок) Вектор, розмір :code:`1 x 4`
      - :code:`a = [2 3 4 5];`
      - :code:`a = np.array([2,3,4,5])`
-   * - Create Column Vector, size :code:`4 x 1`
-     - :code:`a = [2; 3; 4; 5];` or :code:`a = [2 3 4 5].'`
+   * - Створити Стовпчик Вектор, size :code:`4 x 1`
+     - :code:`a = [2; 3; 4; 5];` або :code:`a = [2 3 4 5].'`
      - :code:`a = np.array([[2],[3],[4],[5]])` or |br| :code:`a = np.array([2,3,4,5])` then |br| :code:`a = a.reshape(-1,1)`
-   * - Create 2D Matrix
+   * - Створити 2D Матрицю
      - :code:`A = [1 2; 3 4; 5 6];`
      - :code:`A = np.array([[1,2],[3,4],[5,6]])`
-   * - Get Size
+   * - Взяти розмірність
      - :code:`size(A)`
      - :code:`A.shape`
-   * - Transpose a.k.a. :math:`A^T`
+   * - Транспонувати тобто :math:`A^T`
      - :code:`A.'`
      - :code:`A.T`
-   * - Complex Conjugate Transpose |br| a.k.a. Conjugate Transpose |br| a.k.a. Hermitian Transpose |br| a.k.a. :math:`A^H`
+   * - Комплексне спряжене транспонування |br| також відоме як Спряжене ТранспонуванняConjugate |br| також відоме як ермітове транспонуванн |br| тобто :math:`A^H`
      - :code:`A'`
      - :code:`A.conj().T` |br| |br| (unfortunately there is no :code:`A.H` for ndarrays)
-   * - Elementwise Multiply
+   * - Поелементне множення
      - :code:`A .* B`
      - :code:`A * B` or :code:`np.multiply(a,b)`
-   * - Matrix Multiply
+   * - Матричне множення
      - :code:`A * B`
      - :code:`A @ B` or :code:`np.matmul(A,B)`
-   * - Dot Product of two vectors (1D)
+   * -  Точковий добуток двох векторів (1D)
      - :code:`dot(a,b)`
      - :code:`np.dot(a,b)` (never use np.dot for 2D)
-   * - Concatenate
+   * - Конкатенація
      - :code:`[A A]`
      - :code:`np.concatenate((A,A))`
 
