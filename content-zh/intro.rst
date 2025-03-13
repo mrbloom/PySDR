@@ -58,9 +58,9 @@
 
 如果你从 PySDR 中获得了帮助，别忘了与你的同事、学生和其他可能对这些资料感兴趣的终身学习者分享。你还可以通过在 PySDR 的 `Patreon <https://www.patreon.com/PySDR>`_ 上捐款来表达你的支持，你的名字将会显示在每章下面的章节列表的左侧。
 
-此外，欢迎你通过 pysdr@vt.edu 向我发送问题、评论或者建议，你将为这本教科书的完善做出贡献！
+此外，欢迎你通过 marc@pysdr.org 向我发送问题、评论或者建议，你将为这本教科书的完善做出贡献！
 你还可以直接在教科书的 `GitHub页面 <https://github.com/777arc/PySDR/tree/master/content>`_ 上编辑源代码，欢迎你提交 Issue 或 Pull Request。
-为本书提供有价值反馈或修复的人将被永久列在下面的致谢部分。如果你有建议但不熟悉  Git的操作，也可以直接通过 pysdr@vt.edu 与我取得联系。
+为本书提供有价值反馈或修复的人将被永久列在下面的致谢部分。如果你有建议但不熟悉  Git的操作，也可以直接通过 marc@pysdr.org 与我取得联系。
 
 *****************
 致谢
@@ -74,7 +74,7 @@
 - Deidre Stuffer
 - Tarik Benaddi 将 PySDR 翻译为 `法语 <https://pysdr.org/fr/index-fr.html>`_
 - `Daniel Versluis <https://versd.bitbucket.io/content/about.html>`_ 将 PySDR 翻译为 `荷兰语 <https://pysdr.org/nl/index-nl.html>`_
-- `mrbloom <https://github.com/mrbloom>`_  将 PySDR 翻译为 `乌克兰语 <https://pysdr.org/uk/index-uk.html>`_
+- `mrbloom <https://github.com/mrbloom>`_  将 PySDR 翻译为 `乌克兰语 <https://pysdr.org/ukraine/index-ukraine.html>`_
 - `Yimin Zhao <https://github.com/doctormin>`_ 将 PySDR 翻译为 `简体中文 <https://pysdr.org/zh/index-zh.html>`_
 - `Eduardo Chancay <https://github.com/edulchan>`_ 将 PySDR 翻译为 `西班牙语 <https://pysdr.org/es/index-es.html>`_
 

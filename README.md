@@ -2,7 +2,7 @@
 
 This repo contains the source content used to generate the textbook [PySDR: A Guide to SDR and DSP using Python](https://pysdr.org) hosted at https://pysdr.org.
 
-Feel free to submit an issue, or even a Pull Request (PR) with fixes or improvements.  Those who submit valuable feedback/fixes be permanently added to the acknowledgments section.  Not good at Git but have changes to suggest?  Feel free to email Marc at pysdr@vt.edu.
+Feel free to submit an issue, or even a Pull Request (PR) with fixes or improvements.  Those who submit valuable feedback/fixes be permanently added to the acknowledgments section.  Not good at Git but have changes to suggest?  Feel free to email Marc at marc@pysdr.org.
 
 <p align="center">
   <img width="200" src="https://raw.githubusercontent.com/777arc/PySDR/master/_images/fft_logo_wide.gif" />
@@ -22,7 +22,7 @@ Look at `.github/workflows/build-and-deploy.yml` and run the apt/pip installs, t
 make html
 make html-fr
 make html-nl
-make html-uk
+make html-ukraine
 make html-zh
 ```
 

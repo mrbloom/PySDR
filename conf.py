@@ -1,56 +1,12 @@
 # -*- coding: utf-8 -*-
 # textbook documentation build configuration file, created by sphinx-quickstart on Thu Nov 15 16:36:13 2018.
 
-import os
 from datetime import datetime
-import patreon
 
-################
-# Patreon part #
-################
-creator_id = os.environ.get('CREATOR_ID') # Creator's Access Token from https://www.patreon.com/portal/registration/register-clients
-if creator_id:
-    api_client = patreon.API(creator_id)
-    #data = api_client.fetch_campaign_and_patrons().json_data
-    #patron_count = data['data'][0]['attributes']['patron_count']
-    #print("patron count:", patron_count)
-
-    # Get list of all patrons
-    campaign_id = api_client.fetch_campaign().data()[0].id()
-    pledges_response = api_client.fetch_page_of_pledges(campaign_id, 50) # 2nd arg is number of pledges per page
-    names = []
-    for pledge in pledges_response.data():
-        patron_id = pledge.relationship('patron').id()
-        patron = pledges_response.find_resource_by_type_and_id('user', patron_id)
-        full_name = patron.attribute('full_name')
-        # Manual substitutions to make it look nicer
-        full_name = full_name.replace("Jon Kraft, Analog Devices", "Jon Kraft")
-        full_name = full_name.replace("vince baker", "Vince Baker")
-        if full_name == "Дмитрий Ступаков":
-            continue
-        if full_name == "Al Grant":
-            names.append('Al Grant <img width="15px" height="12px" src="https://pysdr.org/_static/kiwi-bird.svg">')
-            continue
-        names.append(full_name) # there's also 'first_name' which might be better for a public display name
-    # Patreon Supporters
-    html_string = ''
-    html_string += '<div style="font-size: 120%; margin-top: 5px;">A big thanks to all PySDR<br><a href="https://www.patreon.com/PySDR" target="_blank">Patreon</a> supporters:</div>'
-    html_string += '<div style="font-size: 120%; margin-bottom: 80px; margin-top: 0px;">'
-    for name in names:
-        html_string += '&#9900; ' + name + "<br />"
-    # Organizations that are sponsoring (Manually added to get logo included)
-    html_string += '<div style="margin-top: 5px;">and organization-level supporters:</div>'
-    html_string += '<img width="12px" height="12px" src="https://pysdr.org/_static/adi.svg">' + ' <a style="border-bottom: 0;" target="_blank" href="https://www.analog.com/en/design-center/reference-designs/circuits-from-the-lab/cn0566.html">Analog Devices, Inc.</a>' + "<br />"
-    html_string += "</div>"
-    with open("_templates/patrons.html", "w") as patron_file:
-        patron_file.write(html_string)
-else:
-    print("\n=====================================================")
-    print("Warning- CREATOR_ID wasn't set, skipping patron list")
-    print("=====================================================\n")
-    with open("_templates/patrons.html", "w") as patron_file:
-        patron_file.write('')
-
+import sys, os
+sys.path.append(os.path.relpath('.')) # needed for sphinx to allow importing
+from scrape_patreon import scrape_patreon
+scrape_patreon()
 
 ###############################
 # -- General configuration ----
@@ -65,7 +21,7 @@ else:
 extensions = [
     'sphinx.ext.imgmath',
     'sphinx.ext.autosectionlabel',
-    'sphinxcontrib.tikz', #added for dutch # added by mrbloom@ukr.net for fix make error
+    #'sphinxcontrib.tikz', #added for dutch
 ]
 imgmath_image_format = 'svg' # way better looking than pngs (its vectorized after all!)
 imgmath_embed = True #turned this on since latest update broke html formula output, generated wrong svg src links.
@@ -138,7 +94,7 @@ release = u'0.1'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['_build', 'index-fr.rst', 'content-fr/*', 'index-nl.rst', 'content-nl/*', 'index-uk.rst', 'content-uk/*', 'index-zh.rst', 'content-zh/*', 'index-es.rst', 'content-es/*']
+exclude_patterns = ['_build', 'index-fr.rst', 'content-fr/*', 'index-nl.rst', 'content-nl/*', 'index-ukraine.rst', 'content-ukraine/*', 'index-zh.rst', 'content-zh/*', 'index-es.rst', 'content-es/*']
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
@@ -193,7 +149,7 @@ html_sidebars = {
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-html_theme_options = {'description':'By <a href="https://pysdr.org/content/about_author.html">Dr. Marc Lichtman</a> - pysdr@vt.edu',
+html_theme_options = {'description':'By <a href="https://pysdr.org/content/about_author.html">Dr. Marc Lichtman</a> - marc@pysdr.org',
                       'logo': 'logo.svg',
                       'logo_name': True, # used if the logo doesn't contain the project name itself
                       'fixed_sidebar': True, # on smaller screens you can't see the whole sidebar, and it won't scroll
@@ -265,7 +221,8 @@ html_css_files = ['custom.css',]
 html_js_files = [
     'js/beamforming_slider_app.js',
     'js/FFT.js',
-    'js/cyclostationary_app.js'
+    'js/cyclostationary_app.js',
+    'js/homepage_app.js'
 ]
 
 # Add any extra paths that contain custom files (such as robots.txt or

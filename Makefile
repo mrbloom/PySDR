@@ -56,6 +56,10 @@ clean:
 spelling:
 	$(SPHINXBUILD) -b spelling . _spelling
 
+.PHONY: fast-html
+fast-html:
+	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(EXTENSIONS) $(BUILDDIR)
+
 .PHONY: html
 html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(EXTENSIONS) $(BUILDDIR)
@@ -68,34 +72,40 @@ html:
 	sed -i -E "s/<title>[0-9]{1,2}\. /<title>/g" $(BUILDDIR)/content/*
 	@echo changing search button text
 	sed -i 's/value="Go"/value="Search"/g' $(BUILDDIR)/*/*.html
+	@echo file://wsl.localhost/Ubuntu-22.04-New/home/marc/PySDR/_build/index.html
 
 .PHONY: html-es
 html-es:
-	$(SPHINXBUILD) -b html -D project="PySDR: Guia de uso para SDR/DSP con Python"        -D exclude_patterns=_build,index.rst,content/*,index-nl.rst,content-nl/*,index-fr.rst,content-fr/*,index-uk.rst,content-uk/*,index-zh.rst,content-zh/* -D master_doc=index-es $(EXTENSIONS) . $(BUILDDIR)/es/
+	$(SPHINXBUILD) -b html -D project="PySDR: Guia de uso para SDR/DSP con Python"        -D exclude_patterns=_build,index.rst,content/*,index-nl.rst,content-nl/*,index-fr.rst,content-fr/*,index-ukraine.rst,content-ukraine/*,index-zh.rst,content-zh/* -D master_doc=index-es $(EXTENSIONS) . $(BUILDDIR)/es/
 	@echo
 	@echo "Spanish Build finished. The HTML pages are in $(BUILDDIR)/es/html."
 
 .PHONY: html-nl
 html-nl:
-	$(SPHINXBUILD) -b html -D project="PySDR: Een handleiding voor SDR en DSP met Python" -D exclude_patterns=_build,index.rst,content/*,index-fr.rst,content-fr/*,index-uk.rst,content-uk/*,index-zh.rst,content-zh/*,index-es.rst,content-es/* -D master_doc=index-nl $(EXTENSIONS) . $(BUILDDIR)/nl/
+	$(SPHINXBUILD) -b html -D project="PySDR: Een handleiding voor SDR en DSP met Python" -D exclude_patterns=_build,index.rst,content/*,index-fr.rst,content-fr/*,index-ukraine.rst,content-ukraine/*,index-zh.rst,content-zh/*,index-es.rst,content-es/* -D master_doc=index-nl $(EXTENSIONS) . $(BUILDDIR)/nl/
 	@echo
 	@echo "Dutch Build finished. The HTML pages are in $(BUILDDIR)/nl/html."
+	@echo translating title of index and content pages
+	sed -i 's/PySDR: A Guide to SDR and DSP using Python/PySDR: Een handleiding voor SDR en DSP met Python/g' $(BUILDDIR)/nl/index-nl.html
+	sed -i 's/PySDR: A Guide to SDR and DSP using Python/PySDR: Een handleiding voor SDR en DSP met Python/g' $(BUILDDIR)/nl/content-nl/*.html
+	@echo removing chapter number from titles of each page
+	sed -i -E "s/<title>[0-9]{1,2}\. /<title>/g" $(BUILDDIR)/nl/content-nl/*
 
 .PHONY: html-fr
 html-fr:
-	$(SPHINXBUILD) -b html -D project="PySDR : un guide sur SDR et DSP à l'aide de Python" -D exclude_patterns=_build,index.rst,content/*,index-nl.rst,content-nl/*,index-uk.rst,content-uk/*,index-zh.rst,content-zh/*,index-es.rst,content-es/* -D master_doc=index-fr $(EXTENSIONS) . $(BUILDDIR)/fr/
+	$(SPHINXBUILD) -b html -D project="PySDR : un guide sur SDR et DSP à l'aide de Python" -D exclude_patterns=_build,index.rst,content/*,index-nl.rst,content-nl/*,index-ukraine.rst,content-ukraine/*,index-zh.rst,content-zh/*,index-es.rst,content-es/* -D master_doc=index-fr $(EXTENSIONS) . $(BUILDDIR)/fr/
 	@echo
 	@echo "French Build finished. The HTML pages are in $(BUILDDIR)/fr/html."
 
-.PHONY: html-uk
-html-uk:
-	$(SPHINXBUILD) -b html -D project="PySDR: Посібник з SDR та DSP за допомогою Python" -D exclude_patterns=_build,index.rst,content/*,index-fr.rst,content-fr/*,index-nl.rst,content-nl/*,index-zh.rst,content-zh/*,index-es.rst,content-es/* -D master_doc=index-uk $(EXTENSIONS) . $(BUILDDIR)/uk/
+.PHONY: html-ukraine
+html-ukraine:
+	$(SPHINXBUILD) -b html -D project="PySDR: Посібник з SDR та DSP за допомогою Python" -D exclude_patterns=_build,index.rst,content/*,index-fr.rst,content-fr/*,index-nl.rst,content-nl/*,index-zh.rst,content-zh/*,index-es.rst,content-es/* -D master_doc=index-ukraine $(EXTENSIONS) . $(BUILDDIR)/ukraine/
 	@echo
-	@echo "Build finished. The HTML pages are in $(BUILDDIR)/uk/html."
+	@echo "Build finished. The HTML pages are in $(BUILDDIR)/ukraine/html."
 
 .PHONY: html-zh
 html-zh:
-	$(SPHINXBUILD) -b html -D project="PySDR：使用 Python 玩转 SDR 和 DSP" -D exclude_patterns=_build,index.rst,content/*,index-fr.rst,content-fr/*,index-nl.rst,content-nl/*,index-uk.rst,content-uk/*,index-es.rst,content-es/* -D master_doc=index-zh $(EXTENSIONS) . $(BUILDDIR)/zh/
+	$(SPHINXBUILD) -b html -D project="PySDR：使用 Python 玩转 SDR 和 DSP" -D exclude_patterns=_build,index.rst,content/*,index-fr.rst,content-fr/*,index-nl.rst,content-nl/*,index-ukraine.rst,content-ukraine/*,index-es.rst,content-es/* -D master_doc=index-zh $(EXTENSIONS) . $(BUILDDIR)/zh/
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/zh/html."
 
@@ -139,15 +149,6 @@ qthelp:
 	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/textbook.qhcp"
 	@echo "To view the help file:"
 	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/textbook.qhc"
-
-.PHONY: applehelp
-applehelp:
-	$(SPHINXBUILD) -b applehelp $(ALLSPHINXOPTS) $(BUILDDIR)/applehelp
-	@echo
-	@echo "Build finished. The help book is in $(BUILDDIR)/applehelp."
-	@echo "N.B. You won't be able to view it unless you put it in" \
-	      "~/Library/Documentation/Help or install it in your application" \
-	      "bundle."
 
 .PHONY: devhelp
 devhelp:

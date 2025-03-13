@@ -78,7 +78,7 @@ jobs:
           CREATOR_ID: ${{ secrets.CREATOR_ID }}
 
       - name: Build Ukraine
-        run: make html-uk
+        run: make html-ukraine
         env:
           CREATOR_ID: ${{ secrets.CREATOR_ID }}
 

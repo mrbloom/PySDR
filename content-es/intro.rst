@@ -46,7 +46,7 @@ Contribuciones
 
 Si obtuvo valor de PySDR, compártalo con colegas, estudiantes y otros estudiantes permanentes que puedan estar interesados en el material. También puedes donar a través del `PySDR Patreon <https://www.patreon.com/PySDR>`_ como una forma de decir gracias y hacer que su nombre aparezca a la izquierda de cada página debajo de la lista de capítulos.
 
-Si lee cualquier cantidad de este libro de texto y me envía un correo electrónico a pysdr@vt.edu con preguntas/comentarios/sugerencias, entonces felicidades, ¡habrá contribuido a este libro de texto! También puedes editar el material fuente directamente en el `textbook's GitHub page <https://github.com/777arc/PySDR/tree/master/content>`_ (su cambio iniciará con una nueva Pull Request). No dudes en enviar un **Issue** o incluso una **Pull Request (PR)** con correcciones o mejoras. Aquellos que envíen comentarios/correcciones valiosas se agregarán permanentemente a la sección de agradecimientos a continuación. ¿No eres bueno en Git pero tienes cambios que sugerir? No dude en enviarme un correo electrónico a pysdr@vt.edu.
+Si lee cualquier cantidad de este libro de texto y me envía un correo electrónico a marc@pysdr.org con preguntas/comentarios/sugerencias, entonces felicidades, ¡habrá contribuido a este libro de texto! También puedes editar el material fuente directamente en el `textbook's GitHub page <https://github.com/777arc/PySDR/tree/master/content>`_ (su cambio iniciará con una nueva Pull Request). No dudes en enviar un **Issue** o incluso una **Pull Request (PR)** con correcciones o mejoras. Aquellos que envíen comentarios/correcciones valiosas se agregarán permanentemente a la sección de agradecimientos a continuación. ¿No eres bueno en Git pero tienes cambios que sugerir? No dude en enviarme un correo electrónico a marc@pysdr.org.
 
 *****************
 Agradecimientos
@@ -60,7 +60,7 @@ Gracias a cualquiera que haya leído alguna parte de este libro de texto y haya 
 - Deidre Stuffer
 - Tarik Benaddi por `traducir PySDR al Frances <https://pysdr.org/fr/index-fr.html>`_
 - `Daniel Versluis <https://versd.bitbucket.io/content/about.html>`_ por `traducir PySDR al Aleman <https://pysdr.org/nl/index-nl.html>`_
-- `mrbloom <https://github.com/mrbloom>`_ por `tranducir PySDR al ucraniano <https://pysdr.org/uk/index-uk.html>`_
+- `mrbloom <https://github.com/mrbloom>`_ por `tranducir PySDR al ucraniano <https://pysdr.org/ukraine/index-ukraine.html>`_
 - `Yimin Zhao <https://github.com/doctormin>`_ por `traducir PySDR al chino simplificado <https://pysdr.org/zh/index-zh.html>`_
 - `Eduardo Chancay <https://github.com/edulchan>`_ por `traducir PySDR al español <https://pysdr.org/es/index-es.html>`_
 
