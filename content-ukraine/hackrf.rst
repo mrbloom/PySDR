@@ -1,10 +1,10 @@
 .. _hackrf-chapter:
 
-####################
-HackRF One in Python
-####################
+############################
+Робота з HackRF One в Python
+############################
 
-The `HackRF One <https://greatscottgadgets.com/hackrf/one/>`_ from Great Scott Gadgets is a USB 2.0 SDR that can transmit or receive from 1 MHz to 6 GHz and has a sample rate from 2 to 20 MHz.  It was released in 2014 and has had several minor refinements over the years.  It is one of the only low-cost transmit-capable SDRs that goes down to 1 MHz, making it great for HF applications (e.g., ham radio) in addition to higher frequency fun.  The max transmit power of 15 dBm is also higher than most other SDRs, see `this page <https://hackrf.readthedocs.io/en/latest/faq.html#what-is-the-transmit-power-of-hackrf>`_ for full transmit power specs.  It uses half-duplex operation, meaning it is either in transmit or receive mode at any given time, and it uses 8-bit ADC/DAC.
+`HackRF One <https://greatscottgadgets.com/hackrf/one/>`_ від Great Scott Gadgets — це SDR-пристрій із USB 2.0, що може працювати як передавач або приймач у діапазоні від 1 МГц до 6 ГГц із частотою дискретизації від 2 до 20 МГц. Він був випущений у 2014 році та зазнав кількох незначних покращень. Це один із небагатьох недорогих SDR із можливістю передачі, що працює від 1 МГц, що робить його чудовим вибором для додатків у НЧ-діапазоні (наприклад, аматорського радіо) та роботи на вищих частотах. Максимальна вихідна потужність у 15 дБм також є вищою за більшість інших SDR, детальні характеристики передавання можна знайти `тут <https://hackrf.readthedocs.io/en/latest/faq.html#what-is-the-transmit-power-of-hackrf>`_. HackRF One працює в напівдуплексному режимі, тобто він або передає, або приймає в будь-який момент часу, і використовує 8-бітні АЦП/ЦАП.
 
 .. image:: ../_images/hackrf1.jpeg
    :scale: 60 %
@@ -12,28 +12,28 @@ The `HackRF One <https://greatscottgadgets.com/hackrf/one/>`_ from Great Scott G
    :alt: HackRF One
 
 ********************************
-HackRF Architecture
+Архітектура HackRF
 ********************************
 
-The HackRF is based around the Analog Devices MAX2839 chip which is a 2.3GHz to 2.7GHz transceiver initially designed for WiMAX, combined with a MAX5864 RF front-end chip (essentially just the ADC and DAC) and a RFFC5072 wideband synthesizer/VCO (used to upconvert and downconvert the signal in frequency).  This is in contract to most other low-cost SDRs which use a single chip known as an RFIC.  Aside from setting the frequency generated within the RFFC5072, all of the other parameters we will adjust like the attenuation and analog filtering are going to be in the MAX2839.  Instead of using an FPGA or System on Chip (SoC) like many SDRs, the HackRF uses a Complex Programmable Logic Device (CPLD) which acts as simple glue logic, and a microcontroller, the ARM-based LPC4320, which does all of the onboard DSP and interfacing over USB with the host (both transfer of IQ samples in either direction and control of the SDR settings).  The following beautiful block diagram from Great Scott Gadgets shows the architecture of the latest revision of the HackRF One:
+HackRF One побудований на основі чипа MAX2839 від Analog Devices — це приймач/передавач у діапазоні 2,3–2,7 ГГц, спочатку розроблений для WiMAX. Він працює в парі з RF-фронтендом MAX5864 (який містить АЦП і ЦАП) і широкосмуговим синтезатором RFFC5072 (який використовується для підняття та зниження частоти сигналу). На відміну від більшості недорогих SDR, які використовують єдиний чип RFIC, HackRF має іншу архітектуру. 
 
 .. image:: ../_images/hackrf_block_diagram.webp
    :align: center 
-   :alt: HackRF One Block Diagram
+   :alt: Блок схема HackRF One
    :target: ../_images/hackrf_block_diagram.webp
 
-The HackRF One is highly expandable and hackable.  Inside the plastic case are four headers (P9, P20, P22, and P28), specifics can be `found here <https://hackrf.readthedocs.io/en/latest/expansion_interface.html>`_, but note that 8 GPIO pins and 4 ADC inputs are on the P20 header, while SPI, I2C, and UART are on the P22 header.  The P28 header can be used to trigger/synchronize transmit/receive operations with another device (e.g., TR-switch, external amp, or another HackRF), through the trigger input and output, with delay of less than one sample period.
+The HackRF One є високорозширюваним та легко модифікованим пристроєм. Усередині пластикового корпусу розташовані чотири роз'єми (P9, P20, P22 і P28), специфікацію яких можна `знайти тут <https://hackrf.readthedocs.io/en/latest/expansion_interface.html>`_,, але зверніть увагу, що на роз'ємі P20 розташовані 8 виводів GPIO і 4 аналогових входи ADC, тоді як SPI, I2C і UART знаходяться на P22. Роз'єм P28 можна використовувати для ініціалізації або синхронізації операцій передавання/приймання з іншими пристроями (наприклад, TR-перемикачем, зовнішнім підсилювачем або іншим HackRF) через тригерний вхід/вихід, із затримкою менш ніж один період вибірки.
 
 .. image:: ../_images/hackrf2.jpeg
    :scale: 50 %
    :align: center 
-   :alt: HackRF One PCB
+   :alt: Друкована плата HackRF One
 
-The clock used for both the LO and ADC/DAC is derived from either the onboard 25 MHz oscillator, or from an external 10 MHz reference fed in over SMA.  Regardless of which clock is used, the HackRF produces a 10 MHz clock signal on CLKOUT; a standard 3.3V 10 MHz square wave intended for a high impedance load.  The CLKIN port is designed to take a similar 10 MHz 3.3V square wave, and the HackRF One will use the input clock instead of the internal crystal when a clock signal is detected (note, the transition to or from CLKIN only happens when a transmit or receive operation begins).  
+Тактовий сигнал, що використовується як для гетеродина (LO), так і для АЦП/ЦАП, отримується або від вбудованого генератора на 25 МГц, або від зовнішнього опорного сигналу 10 МГц, що подається через SMA-роз'єм. Незалежно від вибраного джерела тактування, HackRF генерує 10 МГц тактовий сигнал на виході CLKOUT; це стандартна квадратна хвиля 3,3 В 10 МГц, призначена для навантаження з високим опором. Порт CLKIN розрахований на прийом аналогічного 10 МГц сигналу (3,3 В квадратної форми), і HackRF One автоматично переключиться на вхідний сигнал замість внутрішнього генератора, коли виявить його (примітка: перехід на використання або відключення зовнішнього тактового сигналу через CLKIN відбувається лише під час початку операції передавання або приймання).
 
-********************************
-Software and Hardware Setup
-********************************
+*********************************************************
+Налаштування програмного та апаратного забезпечення
+*********************************************************
 
 The software install process involves two steps: first we will install the main HackRF library from Great Scott Gadgets, and then we will install the Python API.
 
