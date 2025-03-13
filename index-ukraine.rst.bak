@@ -14,10 +14,7 @@ PySDR: Посібник з SDR та DSP за допомогою Python
    content-ukraine/digital_modulation
    content-ukraine/pluto
    content-ukraine/usrp
-   content-ukraine/bladerf
-   content-ukraine/rtlsdr
-   content-ukraine/hackrf
-   content-ukraine/noise  
+   content-ukraine/noise
    content-ukraine/filters
    content-ukraine/link_budgets
    content-ukraine/channel_coding
@@ -28,6 +25,4 @@ PySDR: Посібник з SDR та DSP за допомогою Python
    content-ukraine/rds
    content-ukraine/doa
    content-ukraine/phaser
-   content-ukraine/cyclostationary
-   content-ukraine/pyqt
    content-ukraine/about_author
